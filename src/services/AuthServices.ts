@@ -6,6 +6,6 @@ export class AuthServices{
 
     // Creacion de funciones
     async register(data: RegisterDTO){
-
+        const exist = await this.userRepository.findByEmail(data.email);
     }
 }
