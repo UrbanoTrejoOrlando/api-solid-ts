@@ -7,5 +7,6 @@ export class AuthServices{
     // Creacion de funciones
     async register(data: RegisterDTO){
         const exist = await this.userRepository.findByEmail(data.email);
+        if (exist) throw new Error("User already exists");
     }
 }
