@@ -4,11 +4,7 @@ import { generateToken } from "../utils/jwt";
 import bcrypt from "bcrypt";
 
 export class AuthService {
-
     constructor(private userRepository: UserRepository) { }
-
-
-
     async register(data: RegisterDTO) {
         const exist = await this.userRepository.findByEmail(data.email);
         if (exist) throw new Error("User already exists");
