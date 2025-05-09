@@ -17,5 +17,7 @@ export class AuthServices{
     // Inicio de sesion
     async login(data: LoginDTO){
         const user = await this.userRepository.findByEmail(data.email);
+        if(!user) throw new Error("User not found");
+        
     }
 }
