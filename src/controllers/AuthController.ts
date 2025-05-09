@@ -6,9 +6,9 @@ const authService = new AuthService(new UserRepository());
 
 export class AuthController{
     static async register(req:Request,res:Response){
-        try(
+        try{
             const token = await authService.register(req.body);
-        )catch(error){
+        }catch(error){
 
         }
 
