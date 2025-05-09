@@ -1,4 +1,4 @@
-import { RegisterDTO } from "../dtos/UserDTO";
+import { LoginDTO, RegisterDTO } from "../dtos/UserDTO";
 import { UserRepository } from "../repositories/UserRepository";
 import { generateToken } from "../utils/jwt";
 
@@ -12,5 +12,10 @@ export class AuthServices{
         const user = await this.userRepository.create(data);
         return generateToken(user._id.toString());
 
+    }
+
+    // Inicio de sesion
+    async login(data: LoginDTO){
+        const user = await this.userRepository.findByEmail(data.email);
     }
 }
