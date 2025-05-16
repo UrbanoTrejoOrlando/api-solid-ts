@@ -8,8 +8,9 @@ export class AuthController{
     static async register(req:Request,res:Response){
         try{
             const token = await authService.register(req.body);
-        }catch(error){
-
+            res.json({token})
+        }catch(error:any){
+            res.status(400).json({message: error.message || "Credenciales invalidas"})
         }
 
 
