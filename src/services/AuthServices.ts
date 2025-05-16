@@ -22,4 +22,11 @@ export class AuthService {
 
     }
 
+    // Funcion para retornar todos los usuarios
+    async getAllUsers(){
+        // Regresar todos los usuarios
+        return await this.userRepository.getAllUser();
+    }
+
+
 }
