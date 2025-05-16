@@ -24,4 +24,19 @@ export class AuthController{
         }
 
     }
+
+    // Creacion de la funcion para regresar todos los usuarios
+    static async getAllUsers(req: Request, res: Response) {
+        try {
+            const users = await authService.getAllUsers();
+            res.json({
+                requestedBy: req.body, 
+                users
+            });
+        } catch (error: any) {
+            res.status(500).json({ message: error.message || "Error al obtener los usuarios" });
+        }
+    }
 }
+
+
