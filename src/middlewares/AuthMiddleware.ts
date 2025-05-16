@@ -12,6 +12,10 @@ export const authMiddleware =(req:Request,res:Response, next:NextFunction)=>{
         res.status(401).json({message: error.message || "Token invalidado"})
     }
 
+
+
+
+    
 /**
  * headers:{
  *  "Content-Type": "application/json",
