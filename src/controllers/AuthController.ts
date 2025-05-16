@@ -16,7 +16,7 @@ export class AuthController{
     }
     static async login (req:Request,res:Response){
         try {
-            const token = authService.login(req.body);
+            const token = await authService.login(req.body);
             res.json({token});
 
         } catch (error:any) {
