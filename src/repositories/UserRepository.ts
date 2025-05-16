@@ -8,6 +8,12 @@ export class UserRepository {
 
     async findByEmail(email:String){
         return await UserModel.findOne({email});
+    }
+
+    // Funcion para regresar todos los ysyaruis
+    async getAllUser(){
+        //  Retorna todos los usuarios pero menos la contraseña
+        return await UserModel.find().select("-password");
         
     }
 }
